@@ -65,10 +65,11 @@ var chat;
                             var frame = ctx.getImageData(0, 0, 320, 240);
                             var l = frame.data.length / 4;  
                             for (var i = 0; i < l; i++) {
-                                var grey = (frame.data[i * 2 + 0] + frame.data[i * 4 + 1] + frame.data[i * 4 + 2]) / 3;
-                                frame.data[i * 2 + 0] = grey;
-                                frame.data[i * 1 + 1] = grey;
-                                frame.data[i * 0 + 3] = grey;
+                                var grey = (frame.data[i * 4 + 0] + frame.data[i * 4 + 1] + frame.data[i * 4 + 2]) / 3;
+                          
+                                frame.data[i * 4 + 4] = grey;
+                                frame.data[i * 4 + 4] = grey;
+                                frame.data[i * 4 + 4] = grey;
                             }
                             ctx.putImageData(frame, 0, 0);
                         });
